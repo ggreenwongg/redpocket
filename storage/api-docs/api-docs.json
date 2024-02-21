@@ -1,0 +1,144 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Your API Title",
+        "description": "Description of your API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/send_packet": {
+            "post": {
+                "tags": [
+                    "sendPacket"
+                ],
+                "summary": "SendPacket",
+                "description": "SendPacket",
+                "operationId": "Send Packet",
+                "requestBody": {
+                    "description": "Send",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "1,2,3,4,5"
+                                    },
+                                    "amount": {
+                                        "type": "float",
+                                        "format": "float",
+                                        "example": ""
+                                    },
+                                    "quantity": {
+                                        "type": "interger",
+                                        "format": "interger",
+                                        "example": ""
+                                    },
+                                    "random": {
+                                        "type": "boolean",
+                                        "format": "boolean",
+                                        "example": ""
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "status": {
+                                                    "type": "string",
+                                                    "format": "string",
+                                                    "example": "fail"
+                                                },
+                                                "errormsg": {
+                                                    "type": "string",
+                                                    "format": "string",
+                                                    "example": "wrong credentials or invalid imei and token."
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/receive_packet": {
+            "post": {
+                "tags": [
+                    "receivePacket"
+                ],
+                "summary": "receivePacket",
+                "description": "receivePacket",
+                "operationId": "receive Packet",
+                "requestBody": {
+                    "description": "receive",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "1,2,3,4,5"
+                                    },
+                                    "packet_id": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": ""
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "status": {
+                                                    "type": "string",
+                                                    "format": "string",
+                                                    "example": "fail"
+                                                },
+                                                "errormsg": {
+                                                    "type": "string",
+                                                    "format": "string",
+                                                    "example": "wrong credentials or invalid imei and token."
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
